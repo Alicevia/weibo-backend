@@ -1,0 +1,39 @@
+{
+  "name": "weibo-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon bin/www.js",
+    "test": "cross-env NODE_ENV=test jest --runInBand --forceExit --colors"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-generic-session": "^2.3.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.1",
+    "koa-onerror": "^4.1.0",
+    "koa-redis": "^4.0.1",
+    "koa-router": "^10.1.1",
+    "koa-static": "^5.0.0",
+    "mysql2": "^2.3.3",
+    "redis": "^4.0.3",
+    "sequelize": "^6.15.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
+  }
+}
