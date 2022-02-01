@@ -9,8 +9,9 @@ import redisStore from 'koa-redis'
 import path from 'path'
 import dbInit from './db/index.js'
 import { REDIS_CONF } from './config/redisConfig.js'
-import users from './routes/users.js'
-import index from './routes/index.js'
+import userApiRouter from './routes/api/user.js'
+import index from './routes/api/index.js'
+import { CONSTANT } from './config/constant.js'
 
 dbInit()
 
@@ -25,7 +26,7 @@ app.use(json())
 app.use(KoaLogger())
 app.use(KoaStatic(`${path.resolve()}/src/public`))
 
-app.keys = ['aksjdflaljkaldf1223@#$']
+app.keys = CONSTANT.SESSION_SECRET_KEY
 app.use(
   session({
     key: 'weibo.sid',
@@ -41,8 +42,9 @@ app.use(
   })
 )
 
-app.use(users.routes(), users.allowedMethods())
 app.use(index.routes(), index.allowedMethods())
+app.use(userApiRouter.routes(), userApiRouter.allowedMethods())
+
 app.on('error', (err, ctx) => {
   console.error('server', err, ctx)
 })
