@@ -1,21 +1,38 @@
 import Router from 'koa-router'
-import { isExist, login, register } from '../../controller/user.js'
+import {
+  getUserInfoBySession,
+  isExist,
+  login,
+  register,
+} from '../../controller/user.js'
+import { checkIsLogin } from '../../middlewares/checkLoginMid.js'
+import { genValidator } from '../../middlewares/validatorMid.js'
+import { userValidate } from '../../validator/user.js'
 
 const userApiRouter = Router()
 userApiRouter.prefix('/user')
+// 用户登录
 userApiRouter.post('/login', async (ctx, next) => {
   const { userName, password } = ctx.request.body
-  ctx.body = await login({ userName, password })
+  ctx.body = await login({ userName, password, ctx })
 })
-
-userApiRouter.post('/register', async (ctx, next) => {
-  const { userName, password, gender } = ctx.request.body
-  ctx.body = await register({ userName, password, gender })
-})
-
+// 用户注册
+userApiRouter.post(
+  '/register',
+  genValidator(userValidate),
+  async (ctx, next) => {
+    const { userName, password, gender } = ctx.request.body
+    ctx.body = await register({ userName, password, gender })
+  }
+)
+// 用户是否存在
 userApiRouter.post('/isExist', async (ctx, next) => {
   const { userName } = ctx.request.body
   ctx.body = await isExist(userName)
 })
+// 用户基本信息
+userApiRouter.get('/userInfo', checkIsLogin, async (ctx) => {
+  ctx.body = await getUserInfoBySession(ctx)
+})
 
-export default userApiRouter
+export { userApiRouter }

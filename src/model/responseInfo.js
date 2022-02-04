@@ -17,8 +17,30 @@ const responseInfo = {
   loginSuccessInfo: {
     message: '登录成功',
   },
+  uploadFileSuccessInfo: {
+    code: 10006,
+    message: '文件上传成功',
+  },
+  uploadFileSizeFailedInfo: {
+    code: 10007,
+    message: '上传文件体积过大',
+  },
+  uploadFileFailedInfo: {
+    code: 10010,
+    message: '文件上传失败',
+  },
   loginFailedInfo: {
+    code: 10008,
     message: '用户名或密码错误',
+  },
+  unLoginInfo: {
+    code: 10005,
+    message: '您尚未登录或者登录凭证已经失效',
+  },
+  userSchemaFailedInfo: {
+    code: 10009,
+    message: '用户名或者密码格式错误',
+    tip: '数据格式校验错误',
   },
 }
 

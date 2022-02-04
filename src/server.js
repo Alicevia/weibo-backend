@@ -6,12 +6,11 @@ import KoaLogger from 'koa-logger'
 import KoaStatic from 'koa-static'
 import session from 'koa-generic-session'
 import redisStore from 'koa-redis'
-import path from 'path'
 import dbInit from './db/index.js'
 import { REDIS_CONF } from './config/redisConfig.js'
-import userApiRouter from './routes/api/user.js'
-import index from './routes/api/index.js'
+import * as routerApi from './routes/api/index.js'
 import { CONSTANT } from './config/constant.js'
+import './utils/env.js'
 
 dbInit()
 
@@ -24,7 +23,8 @@ app.use(
 )
 app.use(json())
 app.use(KoaLogger())
-app.use(KoaStatic(`${path.resolve()}/src/public`))
+app.use(KoaStatic(CONSTANT.PUBLIC_PATH))
+app.use(KoaStatic(CONSTANT.DIST_FOLDER_PATH))
 
 app.keys = CONSTANT.SESSION_SECRET_KEY
 app.use(
@@ -42,8 +42,9 @@ app.use(
   })
 )
 
-app.use(index.routes(), index.allowedMethods())
-app.use(userApiRouter.routes(), userApiRouter.allowedMethods())
+Object.values(routerApi).forEach((item) => {
+  app.use(item.routes(), item.allowedMethods())
+})
 
 app.on('error', (err, ctx) => {
   console.error('server', err, ctx)

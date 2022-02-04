@@ -24,11 +24,19 @@ export async function register({ userName, password, gender }) {
     return new ErrorModel({ ...responseInfo.registerFailedInfo, data: error })
   }
 }
-
-export async function login({ userName, password }) {
-  const userInfo = await getUserInfo(userName, password)
+// 用户登录
+export async function login({ userName, password, ctx }) {
+  const userInfo = await getUserInfo(userName, doCrypto(password))
   if (userInfo) {
+    ctx.session.userInfo = userInfo
     return new SuccessModel(responseInfo.loginSuccessInfo)
   }
   return new ErrorModel(responseInfo.loginFailedInfo)
+}
+// 根据session获取用户信息
+export async function getUserInfoBySession(ctx) {
+  if (ctx.session && ctx.session.userInfo) {
+    return new SuccessModel({ data: ctx.session.userInfo })
+  }
+  return new ErrorModel(responseInfo.unLoginInfo)
 }
