@@ -1,15 +1,10 @@
 const responseInfo = {
-  userNameExist: {
-    code: 10001,
-    message: '用户名已存在',
+  userInfoChangeSuccess: {
+    message: '用户信息更新成功',
   },
-  userNameNotExist: {
-    code: 10003,
-    message: '用户名不存在',
-  },
-  registerFailedInfo: {
-    code: 10002,
-    message: '注册失败',
+  userInfoChangeFailed: {
+    code: 10004,
+    message: '用户信息更新失败',
   },
   registerSuccessInfo: {
     message: '注册成功',
@@ -17,6 +12,23 @@ const responseInfo = {
   loginSuccessInfo: {
     message: '登录成功',
   },
+  userNameExist: {
+    code: 10001,
+    message: '用户名已存在',
+  },
+  registerFailedInfo: {
+    code: 10002,
+    message: '注册失败',
+  },
+  userNameNotExist: {
+    code: 10003,
+    message: '用户名不存在',
+  },
+  unLoginInfo: {
+    code: 10005,
+    message: '您尚未登录或者登录凭证已经失效',
+  },
+
   uploadFileSuccessInfo: {
     code: 10006,
     message: '文件上传成功',
@@ -33,10 +45,7 @@ const responseInfo = {
     code: 10008,
     message: '用户名或密码错误',
   },
-  unLoginInfo: {
-    code: 10005,
-    message: '您尚未登录或者登录凭证已经失效',
-  },
+
   userSchemaFailedInfo: {
     code: 10009,
     message: '用户名或者密码格式错误',

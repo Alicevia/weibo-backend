@@ -11,6 +11,7 @@ import { REDIS_CONF } from './config/redisConfig.js'
 import * as routerApi from './routes/api/index.js'
 import { CONSTANT } from './config/constant.js'
 import './utils/env.js'
+import { ErrorModel } from './model/ResultModel.js'
 
 dbInit()
 
@@ -48,6 +49,7 @@ Object.values(routerApi).forEach((item) => {
 
 app.on('error', (err, ctx) => {
   console.error('server', err, ctx)
+  ctx.body = new ErrorModel({ data: err })
 })
 
 export default app

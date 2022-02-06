@@ -1,5 +1,6 @@
 import Router from 'koa-router'
 import {
+  changeUserInfo,
   getUserInfoBySession,
   isExist,
   login,
@@ -35,4 +36,13 @@ userApiRouter.get('/userInfo', checkIsLogin, async (ctx) => {
   ctx.body = await getUserInfoBySession(ctx)
 })
 
+userApiRouter.patch(
+  '/changeUserInfo',
+  checkIsLogin,
+  genValidator(userValidate),
+  async (ctx, next) => {
+    const { nickName, city, picture } = ctx.request.body
+    ctx.body = await changeUserInfo({ ctx, nickName, city, picture })
+  }
+)
 export { userApiRouter }

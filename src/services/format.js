@@ -12,7 +12,7 @@ export function formatUser(list) {
   }
   return formatUserPicture(list)
 }
-export function generateWhereObj(obj) {
+export function filterInvalidKey(obj) {
   const temp = {}
   Object.keys(obj).forEach((key) => {
     if (obj[key] !== undefined) {
