@@ -45,10 +45,8 @@ const responseInfo = {
     code: 10008,
     message: '用户名或密码错误',
   },
-
   userSchemaFailedInfo: {
     code: 10009,
-    message: '用户名或者密码格式错误',
     tip: '数据格式校验错误',
   },
 }

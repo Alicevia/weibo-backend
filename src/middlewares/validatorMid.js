@@ -6,7 +6,10 @@ export function genValidator(validator) {
     const error = validator(ctx.request.body)
     if (error) {
       // 存在错误
-      ctx.body = new ErrorModel(responseInfo.userSchemaFailedInfo)
+      ctx.body = new ErrorModel({
+        ...responseInfo.userSchemaFailedInfo,
+        data: error,
+      })
       return
     }
     await next()

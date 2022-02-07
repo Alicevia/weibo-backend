@@ -1,5 +1,5 @@
-import app from '../src/server.js'
 import http from 'http'
+import app from '../src/server.js'
 
 const port = 3001
 const server = http.createServer(app.callback())

@@ -1,6 +1,11 @@
 import path from 'path'
+import os from 'os'
+
+const networkInterfaces = os.networkInterfaces()
 
 const CONSTANT = {
+  port: 3001,
+  ip: networkInterfaces.WLAN[1].address,
   DEFAULT_PICTURE: 'https://dwz.cn/rnTnftZs',
 
   CRYPTO_SECRET_KEY: 'alksjdflaks2',

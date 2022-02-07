@@ -38,6 +38,6 @@ export async function saveFile({ name, type, size, filePath }) {
   }
   return new SuccessModel({
     ...responseInfo.uploadFileSuccessInfo,
-    data: { url: `/${fileName}` },
+    data: { url: `http://${CONSTANT.ip}:${CONSTANT.port}/${fileName}` },
   })
 }
