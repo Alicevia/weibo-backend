@@ -1,5 +1,6 @@
 import Router from 'koa-router'
 import {
+  changePassword,
   changeUserInfo,
   getUserInfoBySession,
   isExist,
@@ -43,6 +44,16 @@ userApiRouter.patch(
   async (ctx, next) => {
     const { nickName, city, picture } = ctx.request.body
     ctx.body = await changeUserInfo({ ctx, nickName, city, picture })
+  }
+)
+
+userApiRouter.patch(
+  '/changePassword',
+  checkIsLogin,
+  genValidator(userValidate, ['password', 'newPassword']),
+  async (ctx, next) => {
+    const { password, newPassword } = ctx.request.body
+    ctx.body = await changePassword({ ctx, password, newPassword })
   }
 )
 export { userApiRouter }

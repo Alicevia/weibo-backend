@@ -40,6 +40,6 @@ const userSchema = {
   },
 }
 
-export function userValidate(data) {
-  return validateByAjv(userSchema, data)
+export function userValidate(data, required) {
+  return validateByAjv({ ...userSchema, required }, data)
 }

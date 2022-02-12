@@ -49,6 +49,12 @@ const responseInfo = {
     code: 10009,
     tip: '数据格式校验错误',
   },
+  changePasswordSuccess: {
+    message: '修改密码成功',
+  },
+  changePasswordFailed: {
+    message: '修改密码失败',
+  },
 }
 
 export default responseInfo

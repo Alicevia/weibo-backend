@@ -24,7 +24,7 @@ export async function createUser({ userName, password, gender = 3, nickName }) {
   })
   return res.dataValues
 }
-// 更新用户信息
+// 更新用户部分或者全部信息
 export async function updateUser(
   { password: newPassword, nickName, city, picture },
   { password, userName }
