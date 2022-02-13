@@ -53,7 +53,11 @@ const responseInfo = {
     message: '修改密码成功',
   },
   changePasswordFailed: {
+    code: 10010,
     message: '修改密码失败',
+  },
+  logoutSuccess: {
+    message: '退出成功',
   },
 }
 

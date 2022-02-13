@@ -55,7 +55,7 @@ export async function changeUserInfo({ ctx, nickName, city, picture }) {
   }
   return new ErrorModel(responseInfo.userInfoChangeFailed)
 }
-
+// 更新密码
 export async function changePassword({ ctx, password, newPassword }) {
   const { userName } = ctx.session.userInfo
   const result = await updateUser(
@@ -69,4 +69,9 @@ export async function changePassword({ ctx, password, newPassword }) {
     return new SuccessModel(responseInfo.changePasswordSuccess)
   }
   return new ErrorModel(responseInfo.changePasswordFailed)
+}
+// 清除session
+export async function clearSession(ctx) {
+  delete ctx.session.userInfo
+  return new SuccessModel(responseInfo.logoutSuccess)
 }

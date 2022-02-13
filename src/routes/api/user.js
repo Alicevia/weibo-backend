@@ -2,6 +2,7 @@ import Router from 'koa-router'
 import {
   changePassword,
   changeUserInfo,
+  clearSession,
   getUserInfoBySession,
   isExist,
   login,
@@ -36,7 +37,7 @@ userApiRouter.post('/isExist', async (ctx, next) => {
 userApiRouter.get('/userInfo', checkIsLogin, async (ctx) => {
   ctx.body = await getUserInfoBySession(ctx)
 })
-
+// 修改用户信息
 userApiRouter.patch(
   '/changeUserInfo',
   checkIsLogin,
@@ -46,14 +47,18 @@ userApiRouter.patch(
     ctx.body = await changeUserInfo({ ctx, nickName, city, picture })
   }
 )
-
+// 修改用户密码
 userApiRouter.patch(
   '/changePassword',
   checkIsLogin,
   genValidator(userValidate, ['password', 'newPassword']),
-  async (ctx, next) => {
+  async (ctx) => {
     const { password, newPassword } = ctx.request.body
     ctx.body = await changePassword({ ctx, password, newPassword })
   }
 )
+// 用户退出
+userApiRouter.post('/logout', checkIsLogin, async (ctx) => {
+  ctx.body = await clearSession(ctx)
+})
 export { userApiRouter }
