@@ -1,7 +1,7 @@
 import Koa from 'koa'
 import json from 'koa-json'
 import onerror from 'koa-onerror'
-import bodyparser from 'koa-bodyparser'
+import bodyparser from 'koa-body'
 import KoaLogger from 'koa-logger'
 import KoaStatic from 'koa-static'
 import session from 'koa-generic-session'
@@ -19,7 +19,12 @@ const app = new Koa()
 onerror(app)
 app.use(
   bodyparser({
-    enableTypes: ['json', 'form', 'text'],
+    multipart: true, // 支持文件上传
+    encoding: 'gzip',
+    formidable: {
+      keepExtensions: true, // 保持文件的后缀
+      maxFieldsSize: 2 * 1024 * 1024, // 文件上传大小
+    },
   })
 )
 app.use(json())

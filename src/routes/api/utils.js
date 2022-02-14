@@ -5,18 +5,18 @@ import { saveFile } from '../../controller/utils.js'
 
 const utilsRouter = Router()
 utilsRouter.prefix('/utils')
-utilsRouter.post(
-  '/upload',
-  checkIsLogin,
-  koaForm({
-    // maxFileSize: CONSTANT.FILE_MAX_SIZE, // 大小为 1m
-  }),
-  async (ctx) => {
-    const { file } = ctx.req.files
-    const { size, path, name, type } = file
-    // const { fields } = ctx.req // 获取formData的其他参数
-    ctx.body = await saveFile({ size, filePath: path, name, type })
+utilsRouter.post('/upload', checkIsLogin, async (ctx) => {
+  const { file } = ctx.request.files
+  console.log(file)
+
+  if (!file) {
+    return
   }
-)
+  const { size, path, name, type } = file
+
+  ctx.body = await saveFile({ size, filePath: path, name, type })
+
+  // const { fields } = ctx.req // 获取formData的其他参数
+})
 
 export { utilsRouter }
