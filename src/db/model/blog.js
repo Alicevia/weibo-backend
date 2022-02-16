@@ -7,11 +7,11 @@ const BlogModel = sequlize.define('blog', {
     allowNull: false,
     comment: '用户id',
   },
-  title: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    comment: '微博标题',
-  },
+  // title: {
+  //   type: DataTypes.STRING,
+  //   allowNull: false,
+  //   comment: '微博标题',
+  // },
   content: {
     type: DataTypes.TEXT,
     allowNull: false,

@@ -59,6 +59,14 @@ const responseInfo = {
   logoutSuccess: {
     message: '退出成功',
   },
+
+  createWeiBoSuccess: {
+    message: '微博创建成功',
+  },
+  createWeiBoFail: {
+    code: 11000,
+    message: '创建微博失败',
+  },
 }
 
 export default responseInfo

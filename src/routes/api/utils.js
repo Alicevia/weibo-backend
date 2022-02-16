@@ -1,5 +1,4 @@
 import Router from 'koa-router'
-import koaForm from 'formidable-upload-koa'
 import { checkIsLogin } from '../../middlewares/checkLoginMid.js'
 import { saveFile } from '../../controller/utils.js'
 
@@ -7,7 +6,6 @@ const utilsRouter = Router()
 utilsRouter.prefix('/utils')
 utilsRouter.post('/upload', checkIsLogin, async (ctx) => {
   const { file } = ctx.request.files
-  console.log(file)
 
   if (!file) {
     return

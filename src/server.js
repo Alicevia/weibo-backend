@@ -13,6 +13,7 @@ import { CONSTANT } from './config/constant.js'
 import './utils/env.js'
 import { ErrorModel } from './model/ResultModel.js'
 
+// 数据库连接
 dbInit()
 
 const app = new Koa()
@@ -20,7 +21,6 @@ onerror(app)
 app.use(
   bodyparser({
     multipart: true, // 支持文件上传
-    encoding: 'gzip',
     formidable: {
       keepExtensions: true, // 保持文件的后缀
       maxFieldsSize: 2 * 1024 * 1024, // 文件上传大小

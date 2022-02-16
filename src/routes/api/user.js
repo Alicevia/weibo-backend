@@ -16,6 +16,7 @@ const userApiRouter = Router()
 userApiRouter.prefix('/user')
 // 用户登录
 userApiRouter.post('/login', async (ctx, next) => {
+  console.log(ctx.request.body, 'sf')
   const { userName, password } = ctx.request.body
   ctx.body = await login({ userName, password, ctx })
 })

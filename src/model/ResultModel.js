@@ -2,7 +2,7 @@ class BaseModel {
   constructor({ code, data, tip, message }) {
     this.code = code
     this.data = data
-    this.tip = tip //接口调用情况
+    this.tip = tip // 接口调用情况
     this.message = message
   }
 }
