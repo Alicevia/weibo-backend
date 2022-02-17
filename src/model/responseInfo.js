@@ -67,6 +67,10 @@ const responseInfo = {
     code: 11000,
     message: '创建微博失败',
   },
+  getBlogListFail: {
+    code: 11001,
+    tip: '微博列表查询失败',
+  },
 }
 
 export default responseInfo

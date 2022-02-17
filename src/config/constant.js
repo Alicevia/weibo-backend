@@ -15,6 +15,8 @@ const CONSTANT = {
 
   PUBLIC_PATH: `${path.resolve()}/src/public`,
   DIST_FOLDER_PATH: path.join(path.resolve(), 'uploadFiles'),
+
+  PAGE_SIZE: 10,
 }
 
 export { CONSTANT }

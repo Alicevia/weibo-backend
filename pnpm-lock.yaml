@@ -24,6 +24,7 @@ specifiers:
   prettier: ^2.5.1
   redis: ^4.0.3
   sequelize: ^6.15.0
+  xss: ^1.0.10
 
 dependencies:
   ajv: registry.npmmirror.com/ajv/8.9.0
@@ -40,6 +41,7 @@ dependencies:
   mysql2: registry.npmmirror.com/mysql2/2.3.3
   redis: registry.npmmirror.com/redis/4.0.3
   sequelize: registry.npmmirror.com/sequelize/6.15.0_mysql2@2.3.3
+  xss: registry.npmmirror.com/xss/1.0.10
 
 devDependencies:
   cross-env: registry.npmmirror.com/cross-env/7.0.3
@@ -1635,6 +1637,12 @@ packages:
       delayed-stream: registry.npmmirror.com/delayed-stream/1.0.0
     dev: true
 
+  registry.npmmirror.com/commander/2.20.3:
+    resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/commander/-/commander-2.20.3.tgz}
+    name: commander
+    version: 2.20.3
+    dev: false
+
   registry.npmmirror.com/configstore/5.0.1:
     resolution: {integrity: sha512-aMKprgk5YhBNyH25hj8wGt2+D52Sw1DRRIzqBwLp2Ya9mFmY8KPvvtvmna8SxVR9JMZ4kzMD68N22vlaRpkeFA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/configstore/-/configstore-5.0.1.tgz}
     name: configstore
@@ -1734,6 +1742,12 @@ packages:
     version: 2.0.0
     engines: {node: '>=8'}
     dev: true
+
+  registry.npmmirror.com/cssfilter/0.0.10:
+    resolution: {integrity: sha512-FAaLDaplstoRsDR8XGYH51znUN0UY7nMc6Z9/fvE8EXGwvJE9hu7W2vHwx1+bd6gCYnln9nLbzxFTrcO9YQDZw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/cssfilter/-/cssfilter-0.0.10.tgz}
+    name: cssfilter
+    version: 0.0.10
+    dev: false
 
   registry.npmmirror.com/cssom/0.3.8:
     resolution: {integrity: sha512-b0tGHbfegbhPJpxpiBPU2sCkigAqtM9O121le6bbOlgyV+NyGyCmVfJ6QW9eRjz8CpNfWEOYBIMIGRYkLwsIYg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/cssom/-/cssom-0.3.8.tgz}
@@ -5911,6 +5925,17 @@ packages:
     name: xmlchars
     version: 2.2.0
     dev: true
+
+  registry.npmmirror.com/xss/1.0.10:
+    resolution: {integrity: sha512-qmoqrRksmzqSKvgqzN0055UFWY7OKx1/9JWeRswwEVX9fCG5jcYRxa/A2DHcmZX6VJvjzHRQ2STeeVcQkrmLSw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/xss/-/xss-1.0.10.tgz}
+    name: xss
+    version: 1.0.10
+    engines: {node: '>= 0.10.0'}
+    hasBin: true
+    dependencies:
+      commander: registry.npmmirror.com/commander/2.20.3
+      cssfilter: registry.npmmirror.com/cssfilter/0.0.10
+    dev: false
 
   registry.npmmirror.com/y18n/5.0.8:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/y18n/-/y18n-5.0.8.tgz}

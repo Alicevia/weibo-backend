@@ -1,6 +1,6 @@
 import { validateByAjv } from './validate.js'
 
-const userSchema = {
+const blogSchema = {
   type: 'object',
   properties: {
     content: {
@@ -8,8 +8,12 @@ const userSchema = {
       maxLength: 140,
       minLength: 1,
     },
+    image: {
+      type: 'string',
+      maxLength: 255,
+    },
   },
 }
 export function blogValidate(data, required) {
-  return validateByAjv({ ...userSchema, required }, data)
+  return validateByAjv({ ...blogSchema, required }, data)
 }
